@@ -12,7 +12,6 @@ fs.readFile('input2.txt', 'utf8', function (err, data) {
 
   const parsedNodes = lines
     .slice(0, -1)
-    // .slice(0, 10)
     .map(toNode)
     .forEach(({ node, items }) => {
       map.set(node, items);
@@ -27,8 +26,6 @@ fs.readFile('input2.txt', 'utf8', function (err, data) {
   //   }
   // }, 0);
 
-  // console.log(result);
-  //
   const result2 = count('shiny gold', map);
 
   console.log(result2);

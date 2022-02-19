@@ -39,7 +39,6 @@ fs.readFile('input2.txt', 'utf8', function (err, data) {
 });
 
 function intersection(setA, setB) {
-  // console.log(setA.size, setB.size);
   let _intersection = new Set();
   for (let elem of setB) {
     if (setA.has(elem)) {
@@ -48,17 +47,3 @@ function intersection(setA, setB) {
   }
   return _intersection;
 }
-// abc; 0
-// bax; 1
-// ab
-// bcay; 1
-//
-//+1
-
-// {
-//         a: 3,
-//         b: 1,
-//         c: 1
-// }
-
-// res: 1

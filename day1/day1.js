@@ -123,5 +123,4 @@ const measure = (callback, title) => {
   console.log(`Fn-${title} ---- ${end}ms`);
 };
 
-// measure(QuickSolution, 'Alex');
-measure(SmartSolution, 'Eugen');
+measure(SmartSolution, 'smartSolution');
