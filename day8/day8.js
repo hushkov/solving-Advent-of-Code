@@ -16,7 +16,7 @@ fs.readFile('input2.txt', 'utf8', function (err, data) {
   let accumulator = 0;
   let i = 0;
 
-  // Part ONE
+  // =============== Part ONE ===============
   // do {
   //   let step = allParsedCommands[i];
   //   console.log(i);
