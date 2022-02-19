@@ -13,11 +13,10 @@ fs.readFile('input2.txt', 'utf8', function (err, data) {
   const allParsedCommands = lines.map(parse);
   const allParsedCommands2 = lines.map(parse);
 
-  // console.log(allParsedCommands.slice(0, 5));
-
   let accumulator = 0;
   let i = 0;
 
+  // Part ONE
   // do {
   //   let step = allParsedCommands[i];
   //   console.log(i);
@@ -43,11 +42,17 @@ fs.readFile('input2.txt', 'utf8', function (err, data) {
   // } while (!allParsedCommands[i].wasHere);
 
   //const result2 = recusrionSoulution(0, 0, allParsedCommands2);
+  // const acc = 0;
+  // for (let index = 0; index < 10; index++) {
+  //   if (index === 4) {
+  //     acc += 2;
+  //   }
+  //   else {
+  //     acc += 1;
+  //   }
+  // }
 
-  console.log('Kek', partTwo(allParsedCommands2, 0));
-
-  // console.log('Acc: ', accumulator);
-  //console.log('Acc2: ', result2);
+  console.log('Result PartTwo', partTwo(allParsedCommands2, 0));
 });
 
 function parse(line) {
@@ -62,7 +67,6 @@ function parse(line) {
 function recusrionSoulution(accumulator, i, commands) {
   const step = commands[i];
   if (i < commands.length && !step.wasHere) {
-    //console.log('Index: ', i);
     step.wasHere = true;
     switch (step.cmd) {
       case acc:
@@ -73,7 +77,6 @@ function recusrionSoulution(accumulator, i, commands) {
         return recusrionSoulution(accumulator, i + 1, commands);
     }
   } else {
-    //console.log('Last Index: ', i);
     return [accumulator, i];
   }
 }
@@ -88,9 +91,7 @@ function partTwo(arr, index) {
           : { ...item, wasHere: false };
       });
 
-      // console.log(sample);
       const [acc, lastIndex] = recusrionSoulution(0, 0, sample);
-      // console.log(jmp, index, acc, lastIndex);
       return lastIndex === arr.length ? acc : partTwo(arr, index + 1);
     } else if (curr.cmd === nop) {
       const sample = arr.map((item, idx) => {
@@ -99,9 +100,7 @@ function partTwo(arr, index) {
           : { ...item, wasHere: false };
       });
 
-      // console.log(sample);
       const [acc, lastIndex] = recusrionSoulution(0, 0, sample);
-      // console.log('CMD - Nop', index, acc, lastIndex);
       return lastIndex === arr.length ? acc : partTwo(arr, index + 1);
     } else {
       return partTwo(arr, index + 1);
